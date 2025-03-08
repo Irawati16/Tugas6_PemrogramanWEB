@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Karyawan-Tech Solutions</title>
+    <link rel="stylesheet" href="karyawan.css">
+</head>
+<body>
+    <h2>Tabel Daftar Karyawan</h2>
+    <table id="employeeTable">
+        <tr>
+            <th>Nama</th>
+            <th>Posisi</th>
+            <th>Departemen</th>
+        </tr>
+        <tr>
+            <td>Syifa</td>
+            <td>Developer</td>
+            <td>IT</td>
+        </tr>
+        <tr>
+            <td>Wahyu</td>
+            <td>Designer</td>
+            <td>Marketing</td>
+        </tr>
+        <tr>
+            <td>Irawati</td>
+            <td>Editing</td>
+            <td>Marketing</td>
+        </tr>
+    </table>
+
+    <h2> Form Tambah Karyawan</h2>
+    <form id="employeeForm">
+        <input type="text" id="name" placeholder="Nama" required>
+        <input type="text" id="position" placeholder="Posisi" required>
+        <input type="text" id="department" placeholder="Departemen" required>
+        <button type="submit">Tambah Karyawan</button>
+    </form>
+
+    <script>
+        document.getElementById("employeeForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById("name").value;
+            let position = document.getElementById("position").value;
+            let department = document.getElementById("department").value;
+            
+            let table = document.getElementById("employeeTable");
+            let newRow = table.insertRow();
+            newRow.innerHTML = `<td>${name}</td><td>${position}</td><td>${department}</td>`;
+            
+            document.getElementById("employeeForm").reset();
+        });
+    </script>
+</body>
+</html>
